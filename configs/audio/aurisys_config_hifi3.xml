@@ -46,7 +46,7 @@
         <!-- for aurisys_scene playback with smartpa for all mixed streamout -->
         <aurisys_scenario aurisys_scenario="AURISYS_SCENARIO_DSP_PLAYBACK_SMARTPA">
             <downlink_library_name_list digital_gain_lib_name="">
-                <library name="aurisys_demo"/>
+                <library name="smartpa_tfa9874"/><!--smartpa_tfaxxxx change to smartpa_tfa9874 for algorithm name-->
             </downlink_library_name_list>
         </aurisys_scenario>
         <!-- for aurisys_scene record streamin normal -->
@@ -70,7 +70,7 @@
         <!-- for aurisys_scene call final for sph final process -->
         <aurisys_scenario aurisys_scenario="AURISYS_SCENARIO_DSP_CALL_FINAL">
             <downlink_library_name_list digital_gain_lib_name="">
-                <library name="aurisys_demo"/>
+                <library name="smartpa_tfa9874"/><!--smartpa_tfaxxxx change to smartpa_tfa9874 for algorithm name-->
             </downlink_library_name_list>
         </aurisys_scenario>
         <!-- for aurisys_scene ktv for headphone feedback process -->
@@ -78,6 +78,12 @@
             <downlink_library_name_list digital_gain_lib_name="">
                 <library name="aurisys_demo"/>
             </downlink_library_name_list>
+        </aurisys_scenario>
+        <!-- for aurisys_scene UL gaming -->
+        <aurisys_scenario aurisys_scenario="AURISYS_SCENARIO_DSP_GAMING">
+            <uplink_library_name_list digital_gain_lib_name="">
+                <library name="game_voice_enh"/>
+            </uplink_library_name_list>
         </aurisys_scenario>
     </aurisys_scenarios>
     <!--
@@ -290,6 +296,66 @@
         </library>
         <!--
          * =====================================================================
+         *   NXP smartpa
+         * =====================================================================
+        -->
+        <!--smartpa_tfaxxxx change to smartpa_tfa9874 for algorithm name-->
+        <!--"original dir is /vendor/etc/smartpa_param/"-->
+        <!--original is TFAxxxx-->
+        <!--original is "48000"-->
+        <library name="smartpa_tfa9874"
+                 lib_path="/vendor/lib/libnxpsmartpaparser.so"
+                 lib64_path="/vendor/lib64/libnxpsmartpaparser.so"
+                 param_path="/vendor/etc/audio_param/"
+                 lib_dump_path="AUTO"
+                 adb_cmd_key="TFA9874">
+            <components>
+                <!-- for aurisys_scene playback with smartpa -->
+                <component aurisys_scenario="AURISYS_SCENARIO_DSP_PLAYBACK_SMARTPA"
+                           sample_rate="48000"
+                           audio_format="AUDIO_FORMAT_PCM_8_24_BIT"
+                           frame_size_ms="0"
+                           b_interleave="1"
+                           enable_log="0"
+                           enable_raw_dump="0"
+                           enable_lib_dump="0"
+                           enhancement_mode="0">
+                    <downlink_process>
+                        <buf_in  data_buf_type="DATA_BUF_DOWNLINK_IN"
+                                 num_channels="2"/>
+                        <buf_out data_buf_type="DATA_BUF_DOWNLINK_OUT"
+                                 num_channels="2"/>
+                        <buf_refs>
+                             <buf_ref data_buf_type="DATA_BUF_IV_BUFFER"
+                                     num_channels="2"/>
+                        </buf_refs>
+                    </downlink_process>
+                </component>
+                <!-- for aurisys_scene call final -->
+                <component aurisys_scenario="AURISYS_SCENARIO_DSP_CALL_FINAL"
+                           sample_rate="48000"
+                           audio_format="AUDIO_FORMAT_PCM_8_24_BIT"
+                           frame_size_ms="0"
+                           b_interleave="1"
+                           enable_log="0"
+                           enable_raw_dump="0"
+                           enable_lib_dump="0"
+                           enhancement_mode="0">
+                    <downlink_process>
+                        <buf_in  data_buf_type="DATA_BUF_DOWNLINK_IN"
+                                 num_channels="2"/>
+                        <buf_out data_buf_type="DATA_BUF_DOWNLINK_OUT"
+                                 num_channels="2"/>
+                        <buf_refs>
+                             <buf_ref data_buf_type="DATA_BUF_IV_BUFFER"
+                                     num_channels="2"/>
+                        </buf_refs>
+                    </downlink_process>
+                </component>
+            </components>
+        </library>
+        <!--
+         * =====================================================================
          *   MediaTek Bessound
          * =====================================================================
         -->
@@ -452,6 +518,40 @@
                 </component>
             </components>
         </library>
+        <!--
+         * =====================================================================
+         *   Tencent GV ECNS
+         * =====================================================================
+        -->
+        <library name="game_voice_enh"
+                 lib_path="/vendor/lib/lib_aurisys_gv_ecns.so"
+                 lib64_path="/vendor/lib64/lib_aurisys_gv_ecns.so"
+                 param_path="/vendor/etc/"
+                 lib_dump_path="AUTO"
+                 adb_cmd_key="GV_ECNS">
+            <components>
+                <!-- for aurisys_scene record gaming -->
+                <component aurisys_scenario="AURISYS_SCENARIO_DSP_GAMING"
+                           sample_rate="16000"
+                           audio_format="AUDIO_FORMAT_PCM_16_BIT"
+                           frame_size_ms="20"
+                           b_interleave="0"
+                           enable_log="1"
+                           enable_raw_dump="0"
+                           enable_lib_dump="0"
+                           enhancement_mode="0">
+                    <uplink_process>
+                        <buf_in  data_buf_type="DATA_BUF_UPLINK_IN"
+                                 num_channels="1"/>
+                        <buf_out data_buf_type="DATA_BUF_UPLINK_OUT"
+                                 num_channels="1"/>
+                        <buf_refs>
+                            <buf_ref data_buf_type="DATA_BUF_ECHO_REF"
+                                     num_channels="1"/>
+                        </buf_refs>
+                    </uplink_process>
+                </component>
+            </components>
+        </library>
     </hal_librarys>
-</aurisys_config>                      
-                   
+</aurisys_config>
