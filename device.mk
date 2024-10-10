@@ -9,7 +9,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 # Fingerprint
-TARGET_HAS_UDFPS := true
+TARGET_HAS_UDFPS := false
 
 # NFC
 PRODUCT_PACKAGES += \
