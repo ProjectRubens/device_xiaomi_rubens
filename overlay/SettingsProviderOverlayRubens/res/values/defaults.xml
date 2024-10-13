@@ -19,7 +19,7 @@
 <resources>
 
     <!-- Disable UI touch sounds by default -->
-    <bool name="def_sound_effects_enabled">false</bool>
+    <bool name="def_sound_effects_enabled">true</bool>
 
     <!-- Default screen brightness, from 0 to 255. 78 is 30%. -->
     <integer name="def_screen_brightness">50</integer>
@@ -28,14 +28,14 @@
     <!-- 30 seconds for default screen timeout -->
     <integer name="def_screen_off_timeout">30000</integer>
 
-    <!-- Disable bluetooth by default -->
-    <bool name="def_bluetooth_on">false</bool>
+    <!-- Enable bluetooth by default -->
+    <bool name="def_bluetooth_on">true</bool>
 
-    <!-- Disable dial pad tones by default -->
-    <bool name="def_dtmf_tones_enabled">false</bool>
+    <!-- Enable dial pad tones by default -->
+    <bool name="def_dtmf_tones_enabled">true</bool>
 
-    <!-- Disable screen locking sounds by default -->
-    <integer name="def_lockscreen_sounds_enabled">0</integer>
+    <!-- Enable screen locking sounds by default -->
+    <integer name="def_lockscreen_sounds_enabled">1</integer>
 
     <!-- Enable vibrate for calls by default -->
     <bool name="def_vibrate_when_ringing">true</bool>
