@@ -17,7 +17,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 PRODUCT_NAME := lineage_rubens
 PRODUCT_DEVICE := rubens
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_BRAND := Xiaomi
+PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := 22041211AC
 
 PRODUCT_SYSTEM_NAME := rubens
