@@ -21,7 +21,7 @@ TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # SPL
-VENDOR_SECURITY_PATCH := 2024-11-01
+VENDOR_SECURITY_PATCH := 2025-03-01
 
 # Inherit from mt6895-common
 include device/xiaomi/mt6895-common/BoardConfigCommon.mk
