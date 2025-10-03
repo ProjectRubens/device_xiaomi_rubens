@@ -1,3 +1,8 @@
 # SKU
 ro.boot.hardware.sku=rubens
 vendor.usb.product_string=Redmi K50
+
+# RKPD
+remote_provisioning.enable_rkpd=true
+remote_provisioning.hostname=remoteprovisioning.googleapis.com
+remote_provisioning.connect_timeout_millis=2000
