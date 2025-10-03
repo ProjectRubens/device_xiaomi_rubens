@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_rubens.mk
+    $(LOCAL_DIR)/yaap_rubens.mk
