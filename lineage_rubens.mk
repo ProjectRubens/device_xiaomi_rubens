@@ -11,10 +11,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile.
 $(call inherit-product, device/xiaomi/rubens/device.mk)
 
-# Inherit PixelOS product
-$(call inherit-product, vendor/yaap/config/common_full_phone.mk)
+# Inherit LineageOS product
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := yaap_rubens
+PRODUCT_NAME := lineage_rubens
 PRODUCT_DEVICE := rubens
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
@@ -27,5 +27,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="rubens-user 14 UP1A.231005.007 V816.0.14.0.ULNCNXM release-keys" \
     BuildFingerprint=Redmi/rubens/rubens:14/UP1A.231005.007/OS2.0.3.0.ULNCNXM:user/release-keys \
 
+
+# Inherit GApps if available
+$(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
 
 
